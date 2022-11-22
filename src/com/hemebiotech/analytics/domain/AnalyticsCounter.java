@@ -60,11 +60,7 @@ public class AnalyticsCounter {
 	 */
 	public List<String> getListSymptoms () {
 		
-		
-		
-
-
-		return null;
+		return this.reader.getSymptoms();
 	}
 
 	
