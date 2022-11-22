@@ -23,6 +23,7 @@ public class AnalyticsCounter {
 	private ISymptomWriter writer;
 	private ICountOrderSymptom countOrderSymptoms;
 	
+	
 	/*
 	 * setter and Getter
 	 */
@@ -61,6 +62,18 @@ public class AnalyticsCounter {
 	public List<String> getListSymptoms () {
 		
 		return this.reader.getSymptoms();
+	}
+	
+	/**
+	 * Methode to count occurrence of symptomes
+	 * @return Map<String,Integer> 
+	 */
+	
+	public Map <String,Integer> countOccurenceSymptoms (){
+		
+		List <String> listSymptoms=this.getListSymptoms();
+		
+		return this.countOrderSymptoms.countSymptoms(listSymptoms);
 	}
 
 	
