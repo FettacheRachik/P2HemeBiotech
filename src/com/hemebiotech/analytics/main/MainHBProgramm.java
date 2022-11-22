@@ -1,13 +1,14 @@
 package com.hemebiotech.analytics.main;
 
-import java.util.List;
 import java.util.Map;
 
 import com.hemebiotech.analytics.domain.AnalyticsCounter;
 import com.hemebiotech.analytics.utils.CountOrderSymptom;
 import com.hemebiotech.analytics.utils.ICountOrderSymptom;
 import com.hemebiotech.analytics.utils.ISymptomReader;
+import com.hemebiotech.analytics.utils.ISymptomWriter;
 import com.hemebiotech.analytics.utils.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.utils.WriteSymptomToFile;
 
 /**
  * Main class Programm *
@@ -21,10 +22,12 @@ public class MainHBProgramm {
 
 		// Créer un objet ISymptomReader
 		ISymptomReader reader = new ReadSymptomDataFromFile("ressources/symptoms.txt");
+		ISymptomWriter writer = new WriteSymptomToFile("ressources/result.out");
 
 		// Creer un objet AnalyticsCounter
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 		analyticsCounter.setReader(reader);
+		analyticsCounter.setWriter(writer);
 
 		
 
@@ -44,6 +47,9 @@ public class MainHBProgramm {
 			System.out.println("clé: " + mapentry.getKey()
 					+ " | valeur: " + mapentry.getValue());
 		}
+		
+		//Writer into result.out the symptoms
+		analyticsCounter.writeSymptoms();
 
 	
 

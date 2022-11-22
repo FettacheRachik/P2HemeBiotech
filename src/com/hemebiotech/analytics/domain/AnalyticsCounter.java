@@ -88,6 +88,16 @@ public class AnalyticsCounter {
 	}
 
 	
+	/**
+	 * Method to writer symptoms with numbers of occurence in a file
+	 * @param mapOrderSymptoms
+	 */
+	public void writeSymptoms () {
+		
+		Map <String,Integer >mapOrderSymptoms= this.orderOccurenceSymptoms();
+		this.writer.writeSymptoms(mapOrderSymptoms);
+	}
+	
 	
 		
 	
