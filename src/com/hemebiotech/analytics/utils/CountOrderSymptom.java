@@ -13,12 +13,11 @@ import java.util.TreeMap;
  * @author moi
  *
  */
-public class CountOrderSymptom implements ICountOrderSymptom {
+public class CountOrderSymptom {
 
 	
-
-	@Override
-	public Map<String, Integer> countSymptoms(List<String> listSymptomes) {
+	
+	public static Map<String, Integer> countSymptoms(List<String> listSymptomes) {
 		
 		Map<String, Integer> mapSymptomes = new HashMap<>();
 
@@ -33,8 +32,8 @@ public class CountOrderSymptom implements ICountOrderSymptom {
 		
 	}
 
-	@Override
-	public Map<String, Integer> orderSymptoms(Map<String, Integer> mapSymptomes) {
+	
+	public static Map<String, Integer> orderSymptoms(Map<String, Integer> mapSymptomes) {
 		Map<String, Integer> orderSymptoms = new TreeMap<String, Integer>(mapSymptomes);
 		return orderSymptoms;
 	}
