@@ -15,11 +15,22 @@ import java.util.TreeMap;
  */
 public class CountOrderSymptom implements ICountOrderSymptom {
 
+	
+
 	@Override
 	public Map<String, Integer> countSymptoms(List<String> listSymptomes) {
 		
+		Map<String, Integer> mapSymptomes = new HashMap<>();
+
+		for (String symptome : listSymptomes) {
+			mapSymptomes.putIfAbsent(symptome, 0);
+			mapSymptomes.put(symptome, mapSymptomes.get(symptome) + 1);
+		}
 		
-		return null;
+		
+
+		return mapSymptomes;
+		
 	}
 
 	@Override
