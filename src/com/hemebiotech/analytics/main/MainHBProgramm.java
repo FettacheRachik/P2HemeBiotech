@@ -10,7 +10,8 @@ import com.hemebiotech.analytics.utils.ISymptomReader;
 import com.hemebiotech.analytics.utils.ReadSymptomDataFromFile;
 
 /**
- * Main class Programm * 
+ * Main class Programm *
+ * 
  * @author Rachik Fettache
  *
  */
@@ -25,29 +26,27 @@ public class MainHBProgramm {
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 		analyticsCounter.setReader(reader);
 
-		// List des Symptomes
-		List<String> listeSymptoms = analyticsCounter.getListSymptoms();
+		
 
-		System.out.println("Liste des symptomes" + listeSymptoms);
 		
-		//Creer un objet CountOrderSymptom
-		
+		// Creer un objet CountOrderSymptom
+
 		ICountOrderSymptom countOrderSymptom = new CountOrderSymptom();
-		
-		
 		analyticsCounter.setCountOrderSymptoms(countOrderSymptom);
 		
-		Map <String,Integer> mapSymptoms = analyticsCounter.countOccurenceSymptoms();
+		//Map avec le nombre d occurences des symptomes
+		Map<String, Integer> mapOccurenceSymptoms = analyticsCounter.countOccurenceSymptoms();
 		
-		for (Map.Entry mapentry : mapSymptoms.entrySet()) {
-			 System.out.println("clé: "+mapentry.getKey() 
-			 + " | valeur: " + mapentry.getValue());
-			 }
-		
-		//
-		
-		
-		
+		//Map ordonne treemap
+		Map<String , Integer> orderMapSymptoms = analyticsCounter.orderOccurenceSymptoms();
+
+		for (Map.Entry mapentry : orderMapSymptoms.entrySet()) {
+			System.out.println("clé: " + mapentry.getKey()
+					+ " | valeur: " + mapentry.getValue());
+		}
+
+	
+
 	}
 
 }

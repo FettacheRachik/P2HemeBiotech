@@ -35,7 +35,8 @@ public class CountOrderSymptom implements ICountOrderSymptom {
 
 	@Override
 	public Map<String, Integer> orderSymptoms(Map<String, Integer> mapSymptomes) {
-		return null;
+		Map<String, Integer> orderSymptoms = new TreeMap<String, Integer>(mapSymptomes);
+		return orderSymptoms;
 	}
 
 }

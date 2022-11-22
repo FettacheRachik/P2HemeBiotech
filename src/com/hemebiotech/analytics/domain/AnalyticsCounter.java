@@ -75,6 +75,17 @@ public class AnalyticsCounter {
 		
 		return this.countOrderSymptoms.countSymptoms(listSymptoms);
 	}
+	
+	/**
+	 * Method To order symptoms
+	 * @return Map<String,Integer
+	 */
+	public Map<String, Integer> orderOccurenceSymptoms() {
+		
+		Map<String,Integer> mapSymptoms = this.countOccurenceSymptoms();
+		return this.countOrderSymptoms.orderSymptoms(mapSymptoms);
+		
+	}
 
 	
 	
