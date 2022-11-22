@@ -11,5 +11,5 @@ Realisation:
 Utilisation du langage Java avec l ide Eclipse
 
 
-v0.0.1 Premiere version
-v0.1.1 Clean project : variables and path folder
+v0.1.0 Premiere version
+v0.2.0 Clean project : variables and path folder
