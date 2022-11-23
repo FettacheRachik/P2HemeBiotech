@@ -23,10 +23,10 @@ private String filePath;
 		//Use to write in a file
 		try (FileWriter fileWriter = new FileWriter(filePath, false);
 				BufferedWriter writer = new BufferedWriter(fileWriter);)
-
+		
 		{
-
-			for (Map.Entry mapentry : symptomes.entrySet()) {
+			//Get each symptom with number of occurence and write it in file
+			for (Map.Entry<String,Integer> mapentry : symptomes.entrySet()) {
 				writer.write(mapentry.getKey() + " : " + mapentry.getValue());
 	
 				writer.newLine();
@@ -35,6 +35,7 @@ private String filePath;
 
 		} catch (IOException e) {
 			System.err.println (e.getMessage());
+			//Exit from application
 			System.exit(1);
 		}
 			      

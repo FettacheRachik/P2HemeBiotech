@@ -9,32 +9,29 @@ import com.hemebiotech.analytics.utils.ISymptomWriter;
 
 /**
  * Class define the differents functionnals methods
- * @author moi
+ * 
+ * @author Rachik Fettache
  *
  */
 
 public class AnalyticsCounter {
-	
-	
-	
+
+	/* Private attributes */
 	private ISymptomReader reader;
 	private ISymptomWriter writer;
-	
-	
-	
+
 	/*
 	 * setter and Getter
-	 */
+	*/
 	public ISymptomReader getReader() {
 		return reader;
 	}
 
 	public void setReader(ISymptomReader reader) {
 		this.reader = reader;
-		
+
 	}
-	
-	
+
 	public ISymptomWriter getWriter() {
 		return writer;
 	}
@@ -42,55 +39,52 @@ public class AnalyticsCounter {
 	public void setWriter(ISymptomWriter writer) {
 		this.writer = writer;
 	}
-	
-	
 
 	/**
-	 * Methode qui a partir du fichier contenant les symptomes , va les insérer dans une liste
+	 * Methode qui a partir du fichier contenant les symptomes , va les insérer dans
+	 * une liste
+	 * 
 	 * @return liste des Symptomes
 	 */
-	private List<String> getListSymptoms () {
-		
+	private List<String> getListSymptoms() {
+
 		return this.reader.getSymptoms();
 	}
-	
+
 	/**
 	 * Methode to count occurrence of symptomes
-	 * @return Map<String,Integer> 
+	 * 
+	 * @return Map<String,Integer>
 	 */
-	
-	private Map <String,Integer> countOccurenceSymptoms (){
-		
-		List <String> listSymptoms=this.getListSymptoms();
-		
+
+	private Map<String, Integer> countOccurenceSymptoms() {
+
+		List<String> listSymptoms = this.getListSymptoms();
+
 		return CountOrderSymptom.countSymptoms(listSymptoms);
 	}
-	
+
 	/**
 	 * Method To order symptoms
+	 * 
 	 * @return Map<String,Integer
 	 */
 	private Map<String, Integer> orderOccurenceSymptoms() {
-		
-		Map<String,Integer> mapSymptoms = this.countOccurenceSymptoms();
+
+		Map<String, Integer> mapSymptoms = this.countOccurenceSymptoms();
 		return CountOrderSymptom.orderSymptoms(mapSymptoms);
-		
+
 	}
 
-	
 	/**
 	 * Method to writer symptoms with numbers of occurence in a file
+	 * 
 	 * @param mapOrderSymptoms
 	 */
-	public void writeSymptoms () {
-		
-		Map <String,Integer >mapOrderSymptoms= this.orderOccurenceSymptoms();
+	public void writeSymptoms() {
+
+		Map<String, Integer> mapOrderSymptoms = this.orderOccurenceSymptoms();
 		this.writer.writeSymptoms(mapOrderSymptoms);
 	}
-	
-	
-		
-	
 
-	
 }
